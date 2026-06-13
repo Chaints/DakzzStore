@@ -8,13 +8,13 @@
   <!-- Open Graph -->
   <meta property="og:title" content="DakzzStore - Joki Blox Fruits Terpercaya">
   <meta property="og:description" content="Joki level, material, boss, sword, race, dan lainnya. Fast, aman, dan terpercaya!">
-  <meta property="og:image" content="banner.png">
+  <meta property="og:image" content="https://dakzzstore.my.id/banner.jpg">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="DakzzStore">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="DakzzStore - Joki Blox Fruits Terpercaya">
   <meta name="twitter:description" content="Joki level, material, boss, sword, race, dan lainnya. Fast, aman, dan terpercaya!">
-  <meta name="twitter:image" content="banner.png">
+  <meta name="twitter:image" content="banner.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -147,9 +147,282 @@
     .cart-qty-btn{background:#1e293b;border:1px solid rgba(255,255,255,0.1);color:white;width:24px;height:24px;border-radius:5px;font-size:14px;font-weight:bold;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;}
     .cart-qty-btn:hover{background:rgba(0,242,254,0.2);}
     .cart-qty-num{font-size:13px;font-weight:800;color:var(--accent-cyan);min-width:18px;text-align:center;}
+
+
+  /* ── LOADING SCREEN ─────────────────────────────────────────── */
+  #dakzz-loader {
+    position: fixed;
+    inset: 0;
+    background: var(--bg-dark);
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+  }
+  #dakzz-loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .loader-logo-wrap {
+    position: relative;
+    margin-bottom: 32px;
+    animation: loader-float 2s ease-in-out infinite;
+  }
+  @keyframes loader-float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  .loader-ring {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid rgba(0,242,254,0.1);
+    border-top: 2px solid var(--accent-cyan);
+    border-right: 2px solid var(--accent-blue);
+    animation: loader-spin 1.2s linear infinite;
+    position: absolute;
+    top: -18px;
+    left: -18px;
+    width: 96px;
+    height: 96px;
+  }
+  @keyframes loader-spin {
+    to { transform: rotate(360deg); }
+  }
+  .loader-icon-box {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    box-shadow: 0 0 30px rgba(0,242,254,0.4), 0 0 60px rgba(0,132,255,0.2);
+    position: relative;
+  }
+  .loader-name {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: loader-glow 1.5s ease-in-out infinite alternate;
+  }
+  @keyframes loader-glow {
+    from { filter: drop-shadow(0 0 4px rgba(0,242,254,0.4)); }
+    to   { filter: drop-shadow(0 0 12px rgba(0,242,254,0.9)); }
+  }
+  .loader-tagline {
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 4px;
+    font-weight: 600;
+  }
+  .loader-progress-wrap {
+    width: 220px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 99px;
+    height: 4px;
+    overflow: hidden;
+    margin-top: 28px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .loader-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue));
+    border-radius: 99px;
+    transition: width 0.1s linear;
+    box-shadow: 0 0 8px rgba(0,242,254,0.6);
+  }
+  .loader-text {
+    margin-top: 14px;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+    font-weight: 700;
+    animation: loader-blink 1s ease-in-out infinite;
+  }
+  @keyframes loader-blink {
+    0%,100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  .loader-dots span {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-cyan);
+    margin: 0 2px;
+    animation: loader-dot-bounce 1.2s ease-in-out infinite;
+  }
+  .loader-dots span:nth-child(2) { animation-delay: 0.2s; background: var(--accent-blue); }
+  .loader-dots span:nth-child(3) { animation-delay: 0.4s; background: var(--accent-cyan); opacity: 0.6; }
+  @keyframes loader-dot-bounce {
+    0%,80%,100% { transform: translateY(0); }
+    40% { transform: translateY(-8px); }
+  }
+
+  /* ── PARTICLE CANVAS ─────────────────────────────────────────── */
+  #particle-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero-section {
+    position: relative;
+  }
+  .hero-section > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── CUSTOM CONFIRM POPUP ────────────────────────────────────── */
+  #dakzz-confirm-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(4,6,14,0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 99998;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+  #dakzz-confirm-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  #dakzz-confirm-box {
+    background: var(--bg-card);
+    border: 1px solid rgba(0,242,254,0.2);
+    border-radius: 20px;
+    padding: 28px 24px;
+    width: 90%;
+    max-width: 360px;
+    text-align: center;
+    transform: scale(0.85) translateY(20px);
+    transition: transform 0.3s cubic-bezier(0.175,0.885,0.32,1.275);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 30px rgba(0,242,254,0.08);
+  }
+  #dakzz-confirm-overlay.open #dakzz-confirm-box {
+    transform: scale(1) translateY(0);
+  }
+  .confirm-icon {
+    width: 54px;
+    height: 54px;
+    background: linear-gradient(135deg, rgba(0,242,254,0.15), rgba(0,132,255,0.15));
+    border: 1px solid rgba(0,242,254,0.3);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin: 0 auto 16px auto;
+  }
+  .confirm-title {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 8px;
+    letter-spacing: 0.2px;
+  }
+  .confirm-msg {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 22px;
+  }
+  .confirm-btn-row {
+    display: flex;
+    gap: 10px;
+  }
+  .confirm-btn-cancel {
+    flex: 1;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--text-muted);
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Rajdhani', sans-serif;
+    transition: all 0.2s ease;
+  }
+  .confirm-btn-cancel:hover {
+    background: rgba(255,255,255,0.1);
+    color: var(--text-main);
+  }
+  .confirm-btn-ok {
+    flex: 1.3;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+    border: none;
+    color: white;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    font-family: 'Rajdhani', sans-serif;
+    box-shadow: 0 4px 15px rgba(0,242,254,0.3);
+    transition: all 0.2s ease;
+    letter-spacing: 0.3px;
+  }
+  .confirm-btn-ok:hover {
+    box-shadow: 0 6px 20px rgba(0,242,254,0.45);
+    transform: translateY(-1px);
+  }
   </style>
 </head>
 <body>
+<!-- ── LOADING SCREEN ─────────────────────────────────────── -->
+<div id="dakzz-loader">
+  <div class="loader-logo-wrap">
+    <div class="loader-ring"></div>
+    <div class="loader-icon-box">&#x2694;&#xFE0F;</div>
+  </div>
+  <div class="loader-name">DakzzStore</div>
+  <div class="loader-tagline">Joki Blox Fruits Terpercaya</div>
+  <div class="loader-progress-wrap">
+    <div class="loader-progress-bar" id="loader-bar"></div>
+  </div>
+  <div class="loader-text">Loading<span id="loader-dot-str">...</span></div>
+  <div class="loader-dots" style="margin-top:20px;">
+    <span></span><span></span><span></span>
+  </div>
+</div>
+
+<!-- ── CUSTOM CONFIRM DIALOG ──────────────────────────────── -->
+<div id="dakzz-confirm-overlay">
+  <div id="dakzz-confirm-box">
+    <div class="confirm-icon" id="confirm-icon-el">&#x2753;</div>
+    <div class="confirm-title" id="confirm-title-el">Konfirmasi</div>
+    <div class="confirm-msg" id="confirm-msg-el">Yakin lanjutkan?</div>
+    <div class="confirm-btn-row">
+      <button class="confirm-btn-cancel" id="confirm-btn-cancel-el">Batal</button>
+      <button class="confirm-btn-ok" id="confirm-btn-ok-el">Lanjutkan</button>
+    </div>
+  </div>
+</div>
+
 <div class="phone-wrapper">
 
   <!-- NAVBAR -->
@@ -176,6 +449,7 @@
     <!-- HERO -->
     <div id="hero-area">
       <div class="hero-section">
+        <canvas id="particle-canvas"></canvas>
         <h2 class="hero-title">Buy Roblox Items<br><span>Fast, Easy &amp; Safe</span> with DakzzStore!</h2>
         <p class="hero-desc">DakzzStore adalah toko joki dan kebutuhan game Roblox paling Fast, aman, dan instan. Masuk sekarang dan pilih paket item impian kamu!</p>
         <!-- Hero Banner -->
@@ -188,7 +462,7 @@
           <button class="cara-order-btn" onclick="bukaPopup('pop-cara-order')">&#x1F4CB; Cara Order</button>
         </div>
         <div style="margin-top:16px;">
-          <a href="https://whatsapp.com/channel/0029Vb7UezrKAwEi1LDQJs23" target="_blank" class="testi-btn">&#x1F4E2; Lihat Testimoni Pelanggan</a>
+          <a href="https://whatsapp.com/channel/0029Vb7UezrKAwEi1LDQJs23" target="_blank" class="testi-btn" id="testi-link-btn" onclick="dakzzConfirm(event,'testi')">&#x1F4E2; Lihat Testimoni Pelanggan</a>
         </div>
         <div class="trust-badges">
           <div class="trust-badge"><span>&#x1F512;</span> Akun Aman</div>
@@ -267,22 +541,22 @@
           <div class="joki-square-card" onclick="bukaPopup('pop-m-fighting')" data-keyword="mastery fighting style melee" data-cat="level-mastery">
             <span class="card-category-badge">Mastery</span>
             <div class="png-placeholder"><img loading="lazy" src="mastery_melee.png" alt="&#x26A1;"></div>
-            <div class="card-info-area"><h4>Mastery Fighting Style</h4><div class="card-price-tag">Rp 30 / Poin</div></div>
+            <div class="card-info-area"><h4>Mastery Fighting Style</h4><div class="card-price-tag">Rp 30 / Mastery</div></div>
           </div>
           <div class="joki-square-card" onclick="bukaPopup('pop-m-sword')" data-keyword="mastery sword pedang" data-cat="level-mastery">
             <span class="card-category-badge">Mastery</span>
             <div class="png-placeholder"><img loading="lazy" src="mastery_sword.png" alt="&#x2694;&#xFE0F;"></div>
-            <div class="card-info-area"><h4>Mastery Sword</h4><div class="card-price-tag">Rp 30 / Poin</div></div>
+            <div class="card-info-area"><h4>Mastery Sword</h4><div class="card-price-tag">Rp 30 / mastery</div></div>
           </div>
           <div class="joki-square-card" onclick="bukaPopup('pop-m-fruit')" data-keyword="mastery fruit buah iblis" data-cat="level-mastery">
             <span class="card-category-badge">Mastery</span>
             <div class="png-placeholder"><img loading="lazy" src="mastery_fruit.png" alt="&#x1F347;"></div>
-            <div class="card-info-area"><h4>Mastery Fruit</h4><div class="card-price-tag">Rp 50 / Poin</div></div>
+            <div class="card-info-area"><h4>Mastery Fruit</h4><div class="card-price-tag">Rp 50 / mastery</div></div>
           </div>
           <div class="joki-square-card" onclick="bukaPopup('pop-m-gun')" data-keyword="mastery gun senjata pistol" data-cat="level-mastery">
             <span class="card-category-badge">Mastery</span>
             <div class="png-placeholder"><img loading="lazy" src="mastery_gun.png" alt="&#x1F52B;"></div>
-            <div class="card-info-area"><h4>Mastery Gun</h4><div class="card-price-tag">Rp 50 / Poin</div></div>
+            <div class="card-info-area"><h4>Mastery Gun</h4><div class="card-price-tag">Rp 50 / mastery</div></div>
           </div>
 
           <!-- BELLY & FRAGMENT -->
@@ -749,7 +1023,7 @@
       <button class="popup-close" onclick="tutupPopup('pop-m-fighting')">&#x00D7;</button>
     </div>
     <div class="input-group">
-      <label>TARGET POIN MASTERY? (Max 600)</label>
+      <label>TARGET MASTERY? (Max 600)</label>
       <div class="slider-input-container">
         <input type="range" id="mfs-target" min="0" max="600" value="100" oninput="document.getElementById('mfs-target-num').value=this.value;hitungMasteryEceran('mfs-target',30,'txt-harga-mfs')">
         <input type="number" id="mfs-target-num" min="0" max="600" value="100" oninput="document.getElementById('mfs-target').value=this.value;hitungMasteryEceran('mfs-target',30,'txt-harga-mfs')">
@@ -768,7 +1042,7 @@
       <button class="popup-close" onclick="tutupPopup('pop-m-sword')">&#x00D7;</button>
     </div>
     <div class="input-group">
-      <label>TARGET POIN MASTERY? (Max 600)</label>
+      <label>TARGET MASTERY? (Max 600)</label>
       <div class="slider-input-container">
         <input type="range" id="ms-target" min="0" max="600" value="100" oninput="document.getElementById('ms-target-num').value=this.value;hitungMasteryEceran('ms-target',30,'txt-harga-ms')">
         <input type="number" id="ms-target-num" min="0" max="600" value="100" oninput="document.getElementById('ms-target').value=this.value;hitungMasteryEceran('ms-target',30,'txt-harga-ms')">
@@ -787,7 +1061,7 @@
       <button class="popup-close" onclick="tutupPopup('pop-m-fruit')">&#x00D7;</button>
     </div>
     <div class="input-group">
-      <label>TARGET POIN MASTERY? (Max 600)</label>
+      <label>TARGET MASTERY? (Max 600)</label>
       <div class="slider-input-container">
         <input type="range" id="mf-target" min="0" max="600" value="100" oninput="document.getElementById('mf-target-num').value=this.value;hitungMasteryEceran('mf-target',50,'txt-harga-mf')">
         <input type="number" id="mf-target-num" min="0" max="600" value="100" oninput="document.getElementById('mf-target').value=this.value;hitungMasteryEceran('mf-target',50,'txt-harga-mf')">
@@ -806,7 +1080,7 @@
       <button class="popup-close" onclick="tutupPopup('pop-m-gun')">&#x00D7;</button>
     </div>
     <div class="input-group">
-      <label>TARGET POIN MASTERY? (Max 600)</label>
+      <label>TARGET MASTERY? (Max 600)</label>
       <div class="slider-input-container">
         <input type="range" id="mg-target" min="0" max="600" value="100" oninput="document.getElementById('mg-target-num').value=this.value;hitungMasteryEceran('mg-target',50,'txt-harga-mg')">
         <input type="number" id="mg-target-num" min="0" max="600" value="100" oninput="document.getElementById('mg-target').value=this.value;hitungMasteryEceran('mg-target',50,'txt-harga-mg')">
@@ -866,7 +1140,7 @@
       <p class="checkout-akun-note">&#x1F512; Data akun kamu <strong style="color:var(--accent-green)">hanya dikirim ke admin via WA</strong> dan tidak disimpan di server manapun.</p>
     </div>
     <div style="color:#10b981;text-align:center;font-size:11px;font-weight:bold;margin-top:10px;">&#x1F6E1;&#xFE0F; DAKZZ_STORE: 100% AMAN DAN TERPERCAYA! &#x2705;</div>
-    <button class="checkout-now-btn" onclick="kirimNotaKeWhatsAppAdmin()">&#x1F4B3; Selesaikan via WhatsApp</button>
+    <button class="checkout-now-btn" onclick="dakzzConfirm(event,'checkout')">&#x1F4B3; Selesaikan via WhatsApp</button>
   </div>
 </div>
 
@@ -1308,5 +1582,181 @@
   }
 </script>
 <!-- ============================================================ -->
+<!-- ── FEATURE JS: Loading Screen + Particles + Custom Confirm ── -->
+<script>
+// ── 1. LOADING SCREEN ─────────────────────────────────────────────
+(function(){
+  var loader = document.getElementById('dakzz-loader');
+  var bar    = document.getElementById('loader-bar');
+  var progress = 0;
+  var interval = setInterval(function(){
+    progress += Math.random() * 18 + 6;
+    if(progress >= 95) { progress = 95; clearInterval(interval); }
+    bar.style.width = Math.min(progress,95) + '%';
+  }, 120);
+
+  window.addEventListener('load', function(){
+    clearInterval(interval);
+    bar.style.width = '100%';
+    setTimeout(function(){
+      loader.classList.add('hidden');
+    }, 400);
+  });
+
+  // Fallback: hide after 3s max
+  setTimeout(function(){
+    clearInterval(interval);
+    bar.style.width = '100%';
+    setTimeout(function(){ loader.classList.add('hidden'); }, 400);
+  }, 3000);
+})();
+
+// ── 2. PARTICLE CANVAS ─────────────────────────────────────────────
+(function(){
+  var canvas = document.getElementById('particle-canvas');
+  if(!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var particles = [];
+  var NUM = 55;
+
+  function resize(){
+    var hero = canvas.parentElement;
+    canvas.width  = hero.offsetWidth;
+    canvas.height = hero.offsetHeight;
+  }
+
+  function randBetween(a,b){ return a + Math.random()*(b-a); }
+
+  function createParticle(){
+    return {
+      x: randBetween(0, canvas.width),
+      y: randBetween(0, canvas.height),
+      r: randBetween(1, 3.2),
+      vx: randBetween(-0.25, 0.25),
+      vy: randBetween(-0.35, -0.08),
+      alpha: randBetween(0.15, 0.7),
+      color: Math.random() > 0.5 ? '0,242,254' : '0,132,255',
+      pulse: randBetween(0, Math.PI*2),
+      pulseSpeed: randBetween(0.008, 0.022)
+    };
+  }
+
+  resize();
+  for(var i=0;i<NUM;i++) particles.push(createParticle());
+  window.addEventListener('resize', function(){ resize(); }, {passive:true});
+
+  // draw connection lines between nearby particles
+  function drawLines(){
+    for(var i=0;i<particles.length;i++){
+      for(var j=i+1;j<particles.length;j++){
+        var dx=particles[i].x-particles[j].x;
+        var dy=particles[i].y-particles[j].y;
+        var dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist<90){
+          var a=(1-(dist/90))*0.12;
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x,particles[i].y);
+          ctx.lineTo(particles[j].x,particles[j].y);
+          ctx.strokeStyle='rgba(0,242,254,'+a+')';
+          ctx.lineWidth=0.5;
+          ctx.stroke();
+        }
+      }
+    }
+  }
+
+  function animate(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    drawLines();
+    particles.forEach(function(p){
+      p.pulse += p.pulseSpeed;
+      var alpha = p.alpha * (0.7 + 0.3 * Math.sin(p.pulse));
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+      ctx.fillStyle = 'rgba('+p.color+','+alpha+')';
+      // soft glow
+      ctx.shadowColor = 'rgba('+p.color+',0.6)';
+      ctx.shadowBlur  = 6;
+      ctx.fill();
+      ctx.shadowBlur  = 0;
+
+      p.x += p.vx;
+      p.y += p.vy;
+
+      // wrap around
+      if(p.y < -10)  p.y = canvas.height + 10;
+      if(p.y > canvas.height+10) p.y = -10;
+      if(p.x < -10)  p.x = canvas.width + 10;
+      if(p.x > canvas.width+10)  p.x = -10;
+    });
+    requestAnimationFrame(animate);
+  }
+  animate();
+})();
+
+// ── 3. CUSTOM CONFIRM DIALOG ───────────────────────────────────────
+(function(){
+  var overlay    = document.getElementById('dakzz-confirm-overlay');
+  var iconEl     = document.getElementById('confirm-icon-el');
+  var titleEl    = document.getElementById('confirm-title-el');
+  var msgEl      = document.getElementById('confirm-msg-el');
+  var cancelBtn  = document.getElementById('confirm-btn-cancel-el');
+  var okBtn      = document.getElementById('confirm-btn-ok-el');
+
+  var _pendingCb  = null;
+  var _pendingHref = null;
+
+  function showConfirm(icon, title, msg, okLabel, cancelLabel, onOk){
+    iconEl.textContent   = icon;
+    titleEl.textContent  = title;
+    msgEl.textContent    = msg;
+    okBtn.textContent    = okLabel;
+    cancelBtn.textContent= cancelLabel;
+    _pendingCb = onOk;
+    overlay.classList.add('open');
+  }
+
+  function closeConfirm(){
+    overlay.classList.remove('open');
+    _pendingCb   = null;
+    _pendingHref = null;
+  }
+
+  okBtn.addEventListener('click', function(){
+    var cb = _pendingCb;
+    closeConfirm();
+    if(cb) cb();
+  });
+  cancelBtn.addEventListener('click', closeConfirm);
+  overlay.addEventListener('click', function(e){
+    if(e.target === overlay) closeConfirm();
+  });
+
+  // Expose global function called by buttons
+  window.dakzzConfirm = function(event, type){
+    event.preventDefault();
+    if(type === 'testi'){
+      var href = document.getElementById('testi-link-btn').href;
+      showConfirm(
+        '📢',
+        'Lihat Testimoni',
+        'Kamu akan diarahkan ke halaman testimoni pelanggan DakzzStore. Lanjutkan?',
+        'Lanjutkan ✅',
+        'Batal',
+        function(){ window.open(href,'_blank'); }
+      );
+    } else if(type === 'checkout'){
+      showConfirm(
+        '🛒',
+        'Konfirmasi Checkout',
+        'Pastikan data akun kamu sudah benar. Lanjutkan checkout via WhatsApp?',
+        'Lanjutkan ✅',
+        'Cek Lagi',
+        function(){ kirimNotaKeWhatsAppAdmin(); }
+      );
+    }
+  };
+})();
+</script>
 </body>
 </html>
